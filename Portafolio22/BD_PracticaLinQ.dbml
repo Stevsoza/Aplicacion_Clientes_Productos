@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_PRACTICA_CAPAS" Class="BD_PracticaLinQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=STEVSOZA;Initial Catalog=BD_PRACTICA_CAPAS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BD_PRACTICA_CAPASConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CLIENTES" Member="CLIENTES">
+    <Type Name="CLIENTES">
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DIRECCION" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Association Name="CLIENTES_ENCABEZADO_FACTURA" Member="ENCABEZADO_FACTURA" ThisKey="ID_CLIENTE" OtherKey="ID_CLIENTE" Type="ENCABEZADO_FACTURA" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRODUCTOS" Member="PRODUCTOS">
+    <Type Name="PRODUCTOS">
+      <Column Name="ID_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="PRECIOCOMPRA" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PRECIOVENTA" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="GRAVADO" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="PRODUCTOS_DETALLE_FACTURA" Member="DETALLE_FACTURA" ThisKey="ID_PRODUCTO" OtherKey="ID_PRODUCTO" Type="DETALLE_FACTURA" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DETALLE_FACTURA" Member="DETALLE_FACTURA">
+    <Type Name="DETALLE_FACTURA">
+      <Column Name="ID_FACTURA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_PRODUCTO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CANTIDAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PRODUCTOS_DETALLE_FACTURA" Member="PRODUCTOS" ThisKey="ID_PRODUCTO" OtherKey="ID_PRODUCTO" Type="PRODUCTOS" IsForeignKey="true" />
+      <Association Name="ENCABEZADO_FACTURA_DETALLE_FACTURA" Member="ENCABEZADO_FACTURA" ThisKey="ID_FACTURA" OtherKey="ID_FACTURA" Type="ENCABEZADO_FACTURA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ENCABEZADO_FACTURA" Member="ENCABEZADO_FACTURA">
+    <Type Name="ENCABEZADO_FACTURA">
+      <Column Name="ID_FACTURA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUBTOTAL" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="IMPUESTO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MONTODESCUENTO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="ENCABEZADO_FACTURA_DETALLE_FACTURA" Member="DETALLE_FACTURA" ThisKey="ID_FACTURA" OtherKey="ID_FACTURA" Type="DETALLE_FACTURA" />
+      <Association Name="CLIENTES_ENCABEZADO_FACTURA" Member="CLIENTES" ThisKey="ID_CLIENTE" OtherKey="ID_CLIENTE" Type="CLIENTES" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

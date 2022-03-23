@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BD_PracticaLinQ">
+  <DataContextMoniker Name="/BD_PracticaLinQDataContext" />
+  <nestedChildShapes>
+    <classShape Id="894e9954-6829-4658-952f-f5009169e603" absoluteBounds="0.75, 1.125, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/BD_PracticaLinQDataContext/CLIENTES" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b90dcfb-340a-4c5a-8c93-35f3012c4580" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b3f9e85-ad2d-44fa-b9c1-9b2f667a8179" absoluteBounds="3.5, 4, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/BD_PracticaLinQDataContext/PRODUCTOS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb53a05d-2df2-4c98-a227-83622558fbe9" absoluteBounds="3.515, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e18c1a4-4889-44f4-b63a-877ec0155ffc" absoluteBounds="6.25, 1.25, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/BD_PracticaLinQDataContext/DETALLE_FACTURA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0c02a69-9b5d-452e-ba98-67ea5abd04a0" absoluteBounds="6.265, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a2e9495-3ca2-4633-9409-51d80da236db" absoluteBounds="3.5, 0.875, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/BD_PracticaLinQDataContext/ENCABEZADO_FACTURA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a4768a0-fd45-4b4c-b9e3-e5f9ef0d4edf" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.88544840494792); (7.25 : 4.88544840494792); (7.25 : 2.6362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BD_PracticaLinQDataContext/PRODUCTOS/PRODUCTOS_DETALLE_FACTURA" />
+      <nodes>
+        <classShapeMoniker Id="4b3f9e85-ad2d-44fa-b9c1-9b2f667a8179" />
+        <classShapeMoniker Id="5e18c1a4-4889-44f4-b63a-877ec0155ffc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.94314697265625); (6.25 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BD_PracticaLinQDataContext/ENCABEZADO_FACTURA/ENCABEZADO_FACTURA_DETALLE_FACTURA" />
+      <nodes>
+        <classShapeMoniker Id="8a2e9495-3ca2-4633-9409-51d80da236db" />
+        <classShapeMoniker Id="5e18c1a4-4889-44f4-b63a-877ec0155ffc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.5 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BD_PracticaLinQDataContext/CLIENTES/CLIENTES_ENCABEZADO_FACTURA" />
+      <nodes>
+        <classShapeMoniker Id="894e9954-6829-4658-952f-f5009169e603" />
+        <classShapeMoniker Id="8a2e9495-3ca2-4633-9409-51d80da236db" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
